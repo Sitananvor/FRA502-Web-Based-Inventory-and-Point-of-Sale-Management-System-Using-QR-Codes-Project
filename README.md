@@ -1,0 +1,1 @@
+# FRA502-Web-Based-Inventory-and-Point-of-Sale-Management-System-Using-QR-Codes-Project
