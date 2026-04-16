@@ -1,0 +1,71 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Category {
+  id       BigInt    @id @default(autoincrement())
+  name     String    @unique 
+  products Product[]        
+
+  @@map("categories") 
+}
+
+model Product {
+  id           BigInt           @id @default(autoincrement())
+  qr_code      String?          @unique  
+  name         String          
+  brand        String?        
+  category_id  BigInt          
+  category     Category         @relation(fields: [category_id], references: [id])
+  price        Decimal          @default(0)
+  min_stock    Int              @default(10)
+  
+  batches      InventoryBatch[] 
+  sales_items  SalesItem[]      
+  @@map("products")
+}
+
+model InventoryBatch {
+  id            BigInt      @id @default(autoincrement())
+  product       Product     @relation(fields: [product_id], references: [id], onDelete: Cascade)
+  product_id    BigInt
+  batch_number  String?
+  batch_qr      String?     @unique 
+  stock_amount  Int         @default(0)
+  received_date DateTime    @default(now())
+  expiry_date   DateTime?
+  sales_items   SalesItem[]
+
+  @@map("inventory_batches")
+}
+
+model Sale {
+  id           BigInt      @id @default(autoincrement())
+  total_amount Decimal     @default(0)
+  created_at   DateTime    @default(now())
+  
+  items        SalesItem[]
+
+  @@map("sales")
+}
+
+model SalesItem {
+  id            BigInt          @id @default(autoincrement())
+  sale          Sale            @relation(fields: [sale_id], references: [id], onDelete: Cascade)
+  sale_id       BigInt
+  
+  product       Product         @relation(fields: [product_id], references: [id]) 
+  product_id    BigInt          
+  
+  batch         InventoryBatch? @relation(fields: [batch_id], references: [id], onDelete: SetNull)
+  batch_id      BigInt?        
+  
+  quantity      Int             @default(1)
+  price_at_time Decimal
+
+  @@map("sales_items")
+}
