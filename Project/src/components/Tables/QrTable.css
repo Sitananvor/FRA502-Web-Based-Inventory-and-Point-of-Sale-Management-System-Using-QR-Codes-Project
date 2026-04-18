@@ -1,0 +1,80 @@
+.quantity-control {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.quantity-input {
+    width: 60px;
+    padding: 8px;
+    border: 1.5px solid #BFDBFE;
+    outline: none;
+    border-radius: 8px;
+    font-size: 18px;
+    color: #1A3A5C;
+    text-align: center;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    background: #F8FBFF;
+}
+
+.quantity-input:focus {
+    border-color: #1A73E8;
+    box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.12);
+    background: #ffffff;
+}
+
+.quantity-input::-webkit-outer-spin-button,
+.quantity-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.quantity-input[type=number] {
+    appearance: textfield;
+}
+
+.qty-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.minus-btn {
+    background-color: #FEE2E2;
+    color: #DC2626;
+}
+
+.minus-btn:hover {
+    background-color: #FECACA;
+}
+
+.plus-btn {
+    background-color: #DCFCE7;
+    color: #16A34A;
+}
+
+.plus-btn:hover {
+    background-color: #BBF7D0;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .quantity-input {
+        width: 45px;
+    }
+
+    .qty-btn {
+        width: 28px;
+        height: 28px;
+        font-size: 16px;
+    }
+}

@@ -1,0 +1,122 @@
+.card {
+    display: flex;
+    position: relative;
+    padding: 20px 23px 15px 15px;
+    min-height: 110px;
+    border-radius: 12px;
+    align-items: flex-start;
+    color: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+    width: 100%;
+    box-sizing: border-box;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card-info {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    color: #ffffff;
+    gap: 22px;
+}
+
+.card-title {
+    font-size: 1.45rem;
+    margin: 3px 50px 0px 10px;
+    word-wrap: break-word;
+    opacity: 0.92;
+    font-weight: 500;
+}
+
+.card-value {
+    font-size: 1.5rem !important;
+    font-weight: bold;
+    align-self: flex-end;
+    margin-bottom: 5px;
+}
+
+.card-icon-container {
+    position: absolute;
+    top: 20px;
+    right: 19px;
+    display: flex;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.22);
+    flex-shrink: 0;
+}
+
+@media (max-width: 1199px) {
+    .card {
+        padding: 20px 28px;
+    }
+
+    .card-title {
+        font-size: 1.4rem;
+    }
+
+    .card-value {
+        font-size: 1.45rem;
+        line-height: 1.9rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .card {
+        padding: 20px 24px;
+        min-height: 100px;
+    }
+
+    .card-title {
+        font-size: 1.4rem;
+        margin: 5px 55px 0px 5px;
+    }
+
+    .card-value {
+        font-size: 1.4rem;
+        line-height: 1.6rem;
+    }
+
+    .card-icon-container {
+        top: 20px;
+        right: 20px;
+        padding: 8px;
+    }
+
+    .card-icon-container svg {
+        width: 26px;
+        height: 26px;
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        padding: 18px 20px;
+    }
+
+    .card-title {
+        font-size: 1.2rem;
+        margin: 5px 45px 0px 5px;
+    }
+
+    .card-value {
+        font-size: 1.3rem;
+        line-height: 1.4rem;
+    }
+
+    .card-icon-container {
+        top: 16px;
+        right: 16px;
+        padding: 7px;
+    }
+
+    .card-icon-container svg {
+        width: 24px;
+        height: 24px;
+    }
+}

@@ -1,0 +1,14 @@
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.topbar-layout {
+  display: flex;
+  height: 44px;
+  z-index: 100;
+  background: rgb(255, 255, 255);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+  align-items: center;
+}
